@@ -1,0 +1,12 @@
+*{
+  background-color: #c69c11;
+}
+hr {
+  border-color: black;
+}
+.mainbody{
+  width: 85%;
+}
+.container{
+  display:flex;
+}
