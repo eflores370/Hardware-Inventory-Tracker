@@ -1,12 +1,18 @@
 *{
   background-color: #c69c11;
+  background-size: cover;
 }
 hr {
   border-color: black;
 }
+h1{
+  text-align: center;
 .mainbody{
   width: 90%;
 }
 .container{
   display:flex;
+}
+.hide {
+  visibility:hidden
 }
