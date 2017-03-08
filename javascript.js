@@ -4,8 +4,10 @@ var mainInventoryDiv = $('.mainBody');
 var renderMainInventory = function (data) {
   data.records.forEach(function (item) {
     if(item.fields['Serial Number / Asset Number']){
+      mainInventoryHTML += "<div class='itemContainer'>"
       mainInventoryHTML += "<div class='itemName'>"
       mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + item.fields['Serial Number / Asset Number'] + '</h2>';
+      mainInventoryHTML += '</div>'
       mainInventoryHTML += "<div class='itemInfo'>"
       if(item.fields['Desktop Model']) {
         mainInventoryHTML += '<p>Desktop Model: ' + item.fields['Desktop Model'] + '</p>'; }
@@ -20,8 +22,10 @@ var renderMainInventory = function (data) {
       if(item.fields['CPU']){
         mainInventoryHTML += '<p>CPU: ' + item.fields['CPU'] + '</p>';}
       mainInventoryHTML += '</div>'
-      mainInventoryHTML += '<hr />';
       mainInventoryHTML += '</div>'
+
+      mainInventoryHTML += '<hr />';
+
     }
   });
   mainInventoryDiv.html(mainInventoryHTML);
