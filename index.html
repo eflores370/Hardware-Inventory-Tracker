@@ -1,19 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <title>"Mission Techies Inventory"</title>
+  <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.css">
   <link href="style.css" type="text/css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <header>
   <h1> Mission Techies Inventory</h1>
-  <hr>
-</healer>
-<body>
-<div class="container">
-  <div class="mainBody">
+</header>
+<nav class="navbar navbar-inverse">
+  <div class="navContainer">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Mission Techies Inventory</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Add/Remove Item
+            <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="bootstrap-overrides" href="#">Add an Item</a></li>
+          <li><a class="bootstrap-overrides" href="#">Modify an Item</a></li>
+          <li><a class="bootstrap-overrides" href="#">Remove an Item</a></li>
+        </ul>
+        <li><a href="analytics.html">Analytics</a></li>
+    </ul>
   </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="javascript.js"></script>
+</nav>
+
+<body class="bootstrap-overrides">
+  <div class="container">
+    <div class="mainBody">
+    </div>
+  </div>
+  <script src="Resources/jquery-3.1.1.js"></script>
+  <script src="Resources/bootstrap/js/bootstrap.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
