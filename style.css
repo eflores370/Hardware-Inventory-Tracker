@@ -8,11 +8,8 @@ hr {
 h1{
   text-align: center;
 }
-.mainbody{
-  width: 90%;
-}
 .container{
-  display:flex;
+  /*display:flex;*/
 }
 .hide {
   visibility:hidden
@@ -35,7 +32,26 @@ body {
 }
 .itemName{
   cursor:pointer;
+  margin-bottom: 12px;
 }
-/*.itemInfo{
-  display: flex;
-}*/
+.status, .ram {
+  float: right;
+}
+p {
+  font-size: 14px;
+
+}
+
+.insertedText {
+  font-size: 16px;
+  font-family: verdana;
+  font-weight: bold;
+
+}
+h2 .insertedText {
+  font-size: 22px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 20px;
+}

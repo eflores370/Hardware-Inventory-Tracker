@@ -4,32 +4,52 @@ var mainInventoryDiv = $('.mainBody');
 var renderMainInventory = function(data) {
     data.records.forEach(function(item) {
         if (item.fields['Serial Number / Asset Number']) {
-            mainInventoryHTML += "<div class='itemContainer'>"
-            mainInventoryHTML += "<div class='itemName'>"
-            mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + item.fields['Serial Number / Asset Number'] + '<span class="caret"></span></h2>';
-            mainInventoryHTML += '</div>'
+            mainInventoryHTML += "<div class='itemContainer'>";
+            mainInventoryHTML += "<div class='itemName'>";
+            mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + '<span class="insertedText">'  + item.fields['Serial Number / Asset Number'] + '</span></h2>';
+            mainInventoryHTML += '</div>';
             // Add Hide to class
-            mainInventoryHTML += "<div class='itemInfo hide'>"
+            mainInventoryHTML += "<div class='itemInfo hide'>";
+            mainInventoryHTML += '<p class="desktopModel">Desktop Model: ';
             if (item.fields['Desktop Model']) {
-                mainInventoryHTML += '<p>Desktop Model: ' + item.fields['Desktop Model'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['Desktop Model'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
+
+            mainInventoryHTML += '<p class="status">Status: ';
             if (item.fields['Status']) {
-                mainInventoryHTML += '<p>Status: ' + item.fields['Status'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['Status'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
+
+            mainInventoryHTML += '<p class="operatingSystem"> Operating System: ';
             if (item.fields['Operating System']) {
-                mainInventoryHTML += '<p> Operating System: ' + item.fields['Operating System'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['Operating System'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
+            mainInventoryHTML += '<p class="ram">Ram: ';
             if (item.fields['Ram GB']) {
-                mainInventoryHTML += '<p>Ram: ' + item.fields['Ram GB'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['Ram GB'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
+            mainInventoryHTML += '<p class= "storage">Storage: ';
             if (item.fields['Storage GB']) {
-                mainInventoryHTML += '<p>Storage: ' + item.fields['Storage GB'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['Storage GB'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
+            mainInventoryHTML += '<p class="cpu">CPU: '
             if (item.fields['CPU']) {
-                mainInventoryHTML += '<p>CPU: ' + item.fields['CPU'] + '</p>';
+                mainInventoryHTML += '<span class="insertedText">' + item.fields['CPU'] + '</span></p>';
+            } else {
+                mainInventoryHTML += '</p>';
             }
-            mainInventoryHTML += '</div>'
-            mainInventoryHTML += '</div>'
+            mainInventoryHTML += '</div>';
+            mainInventoryHTML += '</div>';
             mainInventoryHTML += '<hr />';
 
         }
@@ -41,6 +61,6 @@ var renderMainInventory = function(data) {
 $.getJSON(mainInventoryURL, renderMainInventory);
 
 
-$(document).on('click', '.itemContainer', function() {
-    $(this).find('.itemInfo').toggleClass('hide');
+$(document).on('click', '.itemName', function() {
+    $(this).siblings('.itemInfo').toggleClass('hide');
 })
