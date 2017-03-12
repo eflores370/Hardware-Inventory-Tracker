@@ -5,6 +5,7 @@
   <title>"Mission Techies Inventory"</title>
   <link rel="stylesheet" href="Resources/bootstrap/css/bootstrap.css">
   <link href="style.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo|Oswald|Ubuntu" rel="stylesheet">
 </head>
 <header>
   <h1> Mission Techies Inventory</h1>
@@ -12,7 +13,7 @@
 <nav class="navbar navbar-inverse">
   <div class="navContainer">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Mission Techies Inventory</a></li>
+      <li class="active"><a href="index.html">Mission Techies Inventory</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Add/Remove Item
             <span class="caret"></span></a>
@@ -21,10 +22,20 @@
           <li><a class="bootstrap-overrides" href="#">Modify an Item</a></li>
           <li><a class="bootstrap-overrides" href="#">Remove an Item</a></li>
         </ul>
-        <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
     </ul>
   </div>
+  <div>
+    <form id="searchbox" action="">
+          <input id="search" type="text" placeholder="Serial Number">
+          <input id="submit" type="submit" value="Search">
+    </form>
+  </div>
 </nav>
+
+
+
+
 
 <body class="bootstrap-overrides">
   <div class="container">
