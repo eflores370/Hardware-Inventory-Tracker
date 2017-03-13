@@ -12,6 +12,7 @@ h1{
 }
 .container{
   /*display:flex;*/
+  width: 78%;
 }
 .hide {
   visibility:hidden
@@ -120,4 +121,15 @@ h2 {
 
 #submit::-moz-focus-inner {
        border: 0;  /* Small centering fix for Firefox */
+}
+#goTop {
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 32px;
 }

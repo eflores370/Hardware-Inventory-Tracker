@@ -58,9 +58,28 @@ var renderMainInventory = function(data) {
 
 };
 
+// Gets Airtable Data and renders it
 $.getJSON(mainInventoryURL, renderMainInventory);
 
-
+// Hides the descrition of item and toggles it
 $(document).on('click', '.itemName', function() {
     $(this).siblings('.itemInfo').toggleClass('hide');
 })
+
+
+// Shows Go to Top Button when user scrolls down 100 px
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("goTop").style.display = "block";
+    } else {
+        document.getElementById("goTop").style.display = "none";
+    }
+}
+
+// Go to Top of page when user clicks on the Button
+function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}
