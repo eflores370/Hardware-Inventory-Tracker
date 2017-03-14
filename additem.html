@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Version 0.2.06 -->
+<html lang="en">
+<head>
+  <title>Add an Item</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <link href="additem.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo|Oswald|Ubuntu" rel="stylesheet">
+</head>
+<header>
+  <h1> Mission Techies Inventory</h1>
+</header>
+<nav class="navbar navbar-inverse">
+  <div class="navContainer">
+    <ul class="nav navbar-nav">
+      <li><a href="https://mission-techies.github.io/Mission-Techies-Inventory/">Mission Techies Inventory</a></li>
+      <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="additem.html">Add/Remove Item
+              <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="bootstrap-overrides" href="additem.html">Add an Item</a></li>
+          <li><a class="bootstrap-overrides" href="#">Modify an Item</a></li>
+          <li><a class="bootstrap-overrides" href="#">Remove an Item</a></li>
+        </ul>
+        <li><a href="analytics.html">Analytics</a></li>
+    </ul>
+  </div>
+  <div>
+</nav>
+<body class="bootstrap-overrides">
+  <div class="addItemForm">
+    <form action="https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory \" id="addItemForm" method="post">
+      <div>
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber" name="Serial Number / Asset Number">
+      </div>
+      <div>
+        <label for="desktopModel">Desktop Model:</label>
+        <input type="text" id="desktopModel" name="Desktop Model">
+      </div>
+      <div>
+        <label for="vendor">Vendor/Manufacturer:</label>
+        <input type="text" id="vendor" name="Vendor">
+      </div>
+      <div>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="Status">
+      </div>
+      <div>
+        <label for="operatingSystem">Operating Sysyem:</label>
+        <input type="text" id="operatingSystem" name="Operating System">
+      </div>
+      <div>
+        <label for="cpu">CPU Make/Model:</label>
+        <input type="text" id="cpu" name="CPU">
+      </div>
+      <div>
+        <label for="ram">Ram (GB):</label>
+        <input type="text" id="ram" name="Ram GB">
+      </div>
+      <div>
+        <label for="storage">Storage (GB):</label>
+        <input type="text" id="storage" name="Storage GB">
+      </div>
+      <div>
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="Notes"></textarea>
+    </div>
+
+    <div class="formButton">
+      <button type="submit">Add Item</button>
+
+
+    </div>
+
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/5a89ad11e8.js"></script>
+</body>
+
+</html>

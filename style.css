@@ -1,5 +1,4 @@
-/*Version 0.2.04*/
-
+/*Version 0.2.06*/
 *{
   background-color: #c69c11;
   background-size: cover;
@@ -134,4 +133,7 @@ h2 {
     outline: none;
     cursor: pointer;
     font-size: 32px;
+}
+.caret {
+  background-color: inherit;
 }
