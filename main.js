@@ -7,7 +7,7 @@ var renderMainInventory = function(data) {
         if (item.fields['Serial Number / Asset Number']) {
             mainInventoryHTML += "<div class='itemContainer'>";
             mainInventoryHTML += "<div class='itemName'>";
-            mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + '<span class="insertedText">'  + item.fields['Serial Number / Asset Number'] + '</span></h2>';
+            mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + '<span class="insertedText">' + item.fields['Serial Number / Asset Number'] + '</span></h2>';
             mainInventoryHTML += '</div>';
             // Add Hide to class
             mainInventoryHTML += "<div class='itemInfo hide'>";
@@ -69,7 +69,9 @@ $(document).on('click', '.itemName', function() {
 
 
 // Shows Go to Top Button when user scrolls down 100 px
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {
+    scrollFunction()
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
