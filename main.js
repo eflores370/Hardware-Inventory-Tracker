@@ -1,4 +1,4 @@
-//Version 0.2.06
+//Version 0.2.07
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');

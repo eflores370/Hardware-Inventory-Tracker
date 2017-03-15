@@ -1,4 +1,7 @@
-/*Version 0.2.06*/
+/*Version 0.2.07*/
+*{
+  background-color: #inherit;;
+}
 form
 {
     width: 400px;
@@ -75,4 +78,8 @@ button
     outline: none;
     background-color: #323030;
     color: #e7e1e1;
+}
+.addItemForm {
+  margin-top: -25px;
+  padding-top: 35px;
 }
