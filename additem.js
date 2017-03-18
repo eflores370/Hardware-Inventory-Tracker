@@ -1,4 +1,4 @@
-// Version 0.2.08
+// Version 0.2.10
 var submitURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom';
 var form = $('#addItemForm');
 form.on('submit', function(e){
@@ -33,7 +33,12 @@ form.on('submit', function(e){
     }
    };
   $.post(submitURL, data, function(data){
-     $('#submit-message').text('Item has been added to the Inventory.');
+     var bodyHTML = '';
+     bodyHTML += ('<div class="alert alert-success">Success! The item has been added to the inventory.</div>');
+     bodyHTML += ('<a href="index.html" class="btn btn-default">Return to Main Inventory</a>');
+     bodyHTML += ('<a href="additem.html" class="btn btn-default">Add Another Item</a>');
+     $('body').html(bodyHTML);
+
      console.log('success',data)
   });
 });
