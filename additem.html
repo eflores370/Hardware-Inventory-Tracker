@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version 0.2.07 -->
+<!-- Version 0.2.08 -->
 <html lang="en">
 <head>
   <title>Add an Item</title>
@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse">
   <div class="navContainer">
     <ul class="nav navbar-nav">
-      <li><a href="https://mission-techies.github.io/Mission-Techies-Inventory/">Mission Techies Inventory</a></li>
+      <li><a href="index.html">Mission Techies Inventory</a></li>
       <li class="dropdown active">
         <a class="dropdown-toggle" data-toggle="dropdown" href="additem.html">Add/Remove Item
               <span class="caret"></span></a>
@@ -29,43 +29,43 @@
   <div>
 </nav>
 <body class="bootstrap-overrides">
-  <div class="addItemForm">
-    <form action="https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory \" id="addItemForm" method="post">
+  <div>
+    <form id="addItemForm">
       <div>
         <label for="serialNumber">Serial Number:</label>
-        <input type="text" id="serialNumber" name="Serial Number / Asset Number">
+        <input type="text" id="serialNumber" name="serialNumber">
       </div>
       <div>
         <label for="desktopModel">Desktop Model:</label>
-        <input type="text" id="desktopModel" name="Desktop Model">
+        <input type="text" id="desktopModel" name="desktopModel">
       </div>
       <div>
         <label for="vendor">Vendor/Manufacturer:</label>
-        <input type="text" id="vendor" name="Vendor">
+        <input type="text" id="vendor" name="vendor">
       </div>
       <div>
         <label for="status">Status:</label>
-        <input type="text" id="status" name="Status">
+        <input type="text" id="status" name="status">
       </div>
       <div>
         <label for="operatingSystem">Operating Sysyem:</label>
-        <input type="text" id="operatingSystem" name="Operating System">
+        <input type="text" id="operatingSystem" name="operatingSystem">
       </div>
       <div>
         <label for="cpu">CPU Make/Model:</label>
-        <input type="text" id="cpu" name="CPU">
+        <input type="text" id="cpu" name="cpu">
       </div>
       <div>
         <label for="ram">Ram (GB):</label>
-        <input type="text" id="ram" name="Ram GB">
+        <input type="text" id="ram" name="ram">
       </div>
       <div>
         <label for="storage">Storage (GB):</label>
-        <input type="text" id="storage" name="Storage GB">
+        <input type="text" id="storage" name="storage">
       </div>
       <div>
         <label for="notes">Notes:</label>
-        <textarea id="notes" name="Notes"></textarea>
+        <textarea id="notes" name="notes"></textarea>
       </div>
 
       <div class="formButton">
@@ -75,6 +75,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/5a89ad11e8.js"></script>
+<script src="additem.js"></script>
 <!-- <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrao96vrt8qS2dFp?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="1570" style="background: transparent; border: 1px solid #ccc;"></iframe> -->
 </body>
 
