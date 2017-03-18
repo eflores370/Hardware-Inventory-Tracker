@@ -11,19 +11,19 @@ form.on('submit', function(e){
    var desktopModel = $(this).find('input[name=desktopModel]').val();
    var vendor = $(this).find('select[name=vendor]').val();
    var status = $(this).find('select[name=status]').val();
-  //  var operatingSystem = $(this).find('input[name=operatingSystem]').val();
+   var operatingSystem = $(this).find('input[name=operatingSystem]').val();
    var cpu = $(this).find('input[name=cpu]').val();
    var ram = $(this).find('input[name=ram]').val();
    var storage = $(this).find('input[name=storage]').val();
    var notes = $(this).find('textarea[name=notes]').val();
-  //  var ipAddress = '';
+   var ipAddress = '0.0.0.0';
 
-    //Get IP Address
-    // $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
-    //     function(json) {
-    //       ipAddress = (json.ip);
-    //       console.log(ipAddress);
-    //     });
+    // Get IP Address
+    $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+        function(json) {
+          ipAddress = (json.ip);
+          console.log(ipAddress);
+        });
 
    if (!serialNumber) {
       $(this).find('input[name=serialNumber]').addClass("error");
@@ -31,19 +31,19 @@ form.on('submit', function(e){
      return;
    }
 
-
+   console.log(ipAddress);
    var data = {
      'fields': {
        'Serial Number / Asset Number': serialNumber,
        'Desktop Model': desktopModel,
        'Vendor': vendor,
        'Status': status,
-      //  'Operating System': operatingSystem,
+       'Operating System': [operatingSystem],
        'CPU': cpu,
        'Ram GB': ram,
        'Storage GB': storage,
        'Notes': notes,
-      //  'IP Address': ipAddress
+       'IP Address': ipAddress
     }
    };
   $.post(submitURL, data, function(data){
