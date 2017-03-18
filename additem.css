@@ -1,4 +1,4 @@
-/*Version 0.2.07*/
+/*Version 0.2.09 */
 *{
   background-color: #inherit;;
 }
@@ -79,7 +79,7 @@ button
     background-color: #323030;
     color: #e7e1e1;
 }
-.addItemForm {
+#addItemformdiv {
   margin-top: -25px;
-  padding-top: 35px;
+  padding-top: 50px;
 }
