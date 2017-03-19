@@ -1,7 +1,14 @@
-// Version 0.2.11
+// Version 0.2.12
 var submitURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom';
+var ipapi = 'https://api.ipify.org?format=jsonp&callback=?'
 var form = $('#addItemForm');
+var ipAddress = '0.0.0.0';
 
+// Get IP Address
+$.getJSON( ipapi,
+    function(json) {
+      ipAddress = (json.ip);
+    });
 
 
 
@@ -16,14 +23,9 @@ form.on('submit', function(e){
    var ram = $(this).find('input[name=ram]').val();
    var storage = $(this).find('input[name=storage]').val();
    var notes = $(this).find('textarea[name=notes]').val();
-   var ipAddress = '0.0.0.0';
 
-    // Get IP Address
-    $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
-        function(json) {
-          ipAddress = (json.ip);
-          console.log(ipAddress);
-        });
+
+
 
    if (!serialNumber) {
       $(this).find('input[name=serialNumber]').addClass("error");
@@ -31,7 +33,6 @@ form.on('submit', function(e){
      return;
    }
 
-   console.log(ipAddress);
    var data = {
      'fields': {
        'Serial Number / Asset Number': serialNumber,
@@ -46,6 +47,7 @@ form.on('submit', function(e){
        'IP Address': ipAddress
     }
    };
+
   $.post(submitURL, data, function(data){
      var bodyHTML = '';
      bodyHTML += ('<div class="alert alert-success">Success! The item has been added to the inventory.</div>');
