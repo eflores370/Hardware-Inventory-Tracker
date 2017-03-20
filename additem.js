@@ -18,7 +18,18 @@ form.on('submit', function(e){
    var desktopModel = $(this).find('input[name=desktopModel]').val();
    var vendor = $(this).find('select[name=vendor]').val();
    var status = $(this).find('select[name=status]').val();
-   var operatingSystem = $(this).find('input[name=operatingSystem]').val();
+   var operatingSystem = [];
+
+  //  operatingSystem = $.find('.osCheckbox:checked').val();
+  function checkboxValues() {
+     $('.osCheckbox:checked').each(function (){
+       console.log(this);
+        operatingSystem.push($(this).val());
+     })
+  }
+  checkboxValues();
+  console.log(operatingSystem);
+
    var cpu = $(this).find('input[name=cpu]').val();
    var ram = $(this).find('input[name=ram]').val();
    var storage = $(this).find('input[name=storage]').val();
