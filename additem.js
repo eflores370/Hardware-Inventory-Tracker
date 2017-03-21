@@ -1,8 +1,9 @@
-// Version 0.2.13
+// Version 0.2.14
 var submitURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom';
 var ipapi = 'https://api.ipify.org?format=jsonp&callback=?'
 var form = $('#addItemForm');
 var ipAddress = '0.0.0.0';
+var inProgressflag = false;
 
 // Gets IP Address
 $.getJSON(ipapi,
@@ -13,6 +14,11 @@ $.getJSON(ipapi,
 
 //Submits to Airtable API on button click
 form.on('submit', function(e) {
+  console.log(inProgressflag);
+  if (!inProgressflag) {
+    console.log(!inProgressflag);
+    inProgressflag = true;
+    console.log(inProgressflag);
     e.preventDefault();
     var serialNumber = $(this).find('input[name=serialNumber]').val();
     var desktopModel = $(this).find('input[name=desktopModel]').val();
@@ -41,6 +47,8 @@ form.on('submit', function(e) {
     if (!serialNumber) {
         $(this).find('input[name=serialNumber]').addClass("error");
         alert('Please Insert a Valid Serial Number');
+        inProgressflag = false;
+        console.log(inProgressflag);
         return;
     }
 
@@ -69,5 +77,12 @@ form.on('submit', function(e) {
         $('body').html(bodyHTML);
 
         console.log('success', data)
+        inProgressflag = false;
+        console.log(inProgressflag);
     });
+  }
+  else {
+    e.preventDefault();
+    return;
+  }
 });
