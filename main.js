@@ -64,7 +64,7 @@ var renderMainInventory = function(data) {
         $.getJSON(offsetmainInventoryURL, renderMainInventory);
     }
     mainInventoryDiv.append(mainInventoryHTML);
-    // console.log(counter);
+    console.log(counter);
 }
 
 
