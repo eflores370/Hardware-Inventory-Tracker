@@ -47,11 +47,14 @@ header{
 }
 .itemInfo{
   margin-top: 10px;
-  text-indent: 15px;
 }
+/*.itemInfo {
+    display: inline-block;
+}*/
 
-.status, .ram {
-  float: right;
+.desktopModel, .status, .operatingSystem, .ram, .storage, .cpu {
+  width: 30%;
+  display: inline-block;
 }
 p {
   font-size: 14px;
@@ -152,4 +155,13 @@ h2 {
 }
 .mainBody {
   margin-top: 40px;
+}
+button {
+    margin: 1%;
+}
+.mainButton {
+    float: right;
+}
+hr {
+    clear: right;
 }
