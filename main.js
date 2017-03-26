@@ -1,9 +1,10 @@
-// Version 0.2.15
+//Version 0.2.15
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
 var counter = 0;
 var renderMainInventory = function(data) {
+
     data.records.forEach(function(item) {
         if (item.fields['Serial Number / Asset Number']) {
             counter += 1;
@@ -66,6 +67,8 @@ var renderMainInventory = function(data) {
     console.log(counter);
 }
 
+
+
 // Gets Airtable Data and renders it
 $.getJSON(mainInventoryURL, renderMainInventory);
 
@@ -73,6 +76,7 @@ $.getJSON(mainInventoryURL, renderMainInventory);
 $(document).on('click', '.itemName', function() {
     $(this).siblings('.itemInfo').toggleClass('hide');
 })
+
 
 // Shows Go to Top Button when user scrolls down 100 px
 window.onscroll = function() {
