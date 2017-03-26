@@ -51,10 +51,9 @@ var renderMainInventory = function(data) {
             } else {
                 mainInventoryHTML += '</p>';
             }
-
-            mainInventoryHTML += '<form class="modifyRemove"><br><button class="mainButton" type="submit">Modify</button>';
-            mainInventoryHTML += '<button class="mainButton" type="submit">Remove</button></form>';
-            mainInventoryHTML += '</div><hr />';
+            mainInventoryHTML += '</div>';
+            mainInventoryHTML += '</div>';
+            mainInventoryHTML += '<hr />';
         }
     });
     if (data.offset) {

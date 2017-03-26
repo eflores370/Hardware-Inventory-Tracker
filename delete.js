@@ -1,11 +1,19 @@
-var form = $('.modifyRemove');
-
-form.on('submit', function(d) {
-    console.log(2)
-    d.preventDefault();
-    // var serialNumber = $(this).find(span);
-    // console.log(serialNumber)
+var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
+var mainInventoryHTML = '';
+var mainInventoryDiv = $('.mainForm');
+var counter = 0;
+var renderMainInventory = function(data) {
+    data.records.forEach(function(item) {
+        if (item.fields['Serial Number / Asset Number']) {
+            counter +=1;
+            console.log(data.id)
+            mainInventoryHTML += `<input type='radio' name='deleteitem' value='${data.id}'>${item.fields['Serial Number / Asset Number']}<br>`
+}
 })
+    mainInventoryDiv.append(mainInventoryHTML);
+}
+$.getJSON(mainInventoryURL, renderMainInventory);
+
 // DELETE A Record
 // $(document).ready(function() {
 // var id = 'recBcYIrAss7YFFFL';
