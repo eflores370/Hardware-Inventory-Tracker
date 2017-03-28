@@ -1,4 +1,4 @@
-//Version 0.3.1
+// Version 0.3.2
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
@@ -66,8 +66,7 @@ var renderMainInventory = function(data) {
     if (data.offset) {
         var offsetmainInventoryURL = mainInventoryURL + '&offset=' + data.offset;
         $.getJSON(offsetmainInventoryURL, renderMainInventory);
-    }
-    else {
+    } else {
         mainInventoryDiv.append(mainInventoryHTML);
         var form = $('.modifyRemove');
         console.log('i');
@@ -75,13 +74,13 @@ var renderMainInventory = function(data) {
         form.on('submit', function(d) {
             d.preventDefault();
             var prompt = window.prompt("Please type 'DELETE' in order to continue   .")
-                var itemID = $(this).parents('.itemContainer');
-                itemID = itemID.children('.id');
-                itemID = itemID.text();
-                console.log(itemID);
-                if(prompt === 'DELETE'){
-                    var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
-                    console.log(link);
+            var itemID = $(this).parents('.itemContainer');
+            itemID = itemID.children('.id');
+            itemID = itemID.text();
+            console.log(itemID);
+            if (prompt === 'DELETE') {
+                var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
+                console.log(link);
                 // Sends DELETE request to airtable
                 $.ajax({
                     url: link,
@@ -94,41 +93,41 @@ var renderMainInventory = function(data) {
                 });
             }
         })
-        }
+    }
 }
 
 // Search Bar
 var form2 = $('#searchbox');
 var arrayholder = [];
+var searchcounter = 0;
 form2.on('submit', function(f) {
     f.preventDefault();
-    arrayholder.forEach( function (i) {
-        console.log(i);
+    arrayholder.forEach(function(i) {
+        // console.log(i);
         i.removeClass('hidden');
-        console.log(i);
+        // console.log(i);
     })
-    arrayholder = [];
+    if (searchcounter > 0) {
+        arrayholder = [];
+    }
     var Search = search.value;
-    var searchcounter = 0;
-    $('.SN').each(function (item) {
+    if (!Search) {
+        alert('No Serial Number Inserted')
+        return
+    }
+    $('.SN').each(function(item) {
         var SN = $(this);
         SN = SN.text();
-        if(Search != SN){
+        if (Search != SN) {
             var temp2 = $(this);
             temp2 = temp2.parent('.itemContainer')
             temp2.addClass('hidden');
             arrayholder.push(temp2)
-        }
-        else {
-            searchcounter += 1;
-        }
 
-    })
-    if(searchcounter === 0){
-        mainInventoryHTML = '<h1>No Results found</h1>'
-        mainInventoryDiv.html(mainInventoryHTML);
     }
-    console.log(arrayholder)
+
+})
+// console.log(arrayholder)
 })
 
 
