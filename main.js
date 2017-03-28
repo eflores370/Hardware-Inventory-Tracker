@@ -1,14 +1,16 @@
-//Version 0.2.15
+//Version 0.3.0
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
 var counter = 0;
+var offsetcounter = 0;
 var renderMainInventory = function(data) {
 
     data.records.forEach(function(item) {
         if (item.fields['Serial Number / Asset Number']) {
             counter += 1;
             mainInventoryHTML += "<div class='itemContainer'>";
+            mainInventoryHTML += `<h4 class='id'>${item.id}</h4>`
             mainInventoryHTML += "<div class='itemName'>";
             mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + '<span class="insertedText">' + item.fields['Serial Number / Asset Number'] + '</span></h2>';
             mainInventoryHTML += '</div>';
@@ -52,22 +54,45 @@ var renderMainInventory = function(data) {
             } else {
                 mainInventoryHTML += '</p>';
             }
-            mainInventoryHTML += '</div>';
-            mainInventoryHTML += '</div>';
+            mainInventoryHTML += '<div><form class="modifyRemove"><button class="mainButton remove" type="submit">Remove</button></form></div>';
+            mainInventoryHTML += '</div></div>';
             mainInventoryHTML += '<hr />';
         }
     });
+
+    console.log(counter);
     if (data.offset) {
-        // console.log(data.offset)
-        var offsetmainInventoryURL = mainInventoryURL + '&offset=' + data.offset
-        // console.log(offsetmainInventoryURL);
+        var offsetmainInventoryURL = mainInventoryURL + '&offset=' + data.offset;
         $.getJSON(offsetmainInventoryURL, renderMainInventory);
     }
-    mainInventoryDiv.append(mainInventoryHTML);
-    console.log(counter);
+    else {
+        mainInventoryDiv.append(mainInventoryHTML);
+        var form = $('.modifyRemove');
+        console.log('i');
+        form.on('submit', function(d) {
+            d.preventDefault();
+            var prompt = window.prompt("Please type 'DELETE' in order to continue   .")
+                var itemID = $(this).parents('.itemContainer');
+                itemID = itemID.children('.id');
+                itemID = itemID.text();
+                console.log(itemID);
+                if(prompt === 'DELETE'){
+                    var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
+                    console.log(link);
+
+                $.ajax({
+                    url: link,
+                    type: 'DELETE',
+                    success: function(result) {
+                        // Do something with the result
+                        console.log('Success');
+                        window.location.reload();
+                    }
+                });
+            }
+        })
+        }
 }
-
-
 
 // Gets Airtable Data and renders it
 $.getJSON(mainInventoryURL, renderMainInventory);
