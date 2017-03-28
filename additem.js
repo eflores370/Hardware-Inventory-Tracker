@@ -1,4 +1,4 @@
-// Version 0.2.14
+// Version 0.3.0
 var submitURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom';
 var ipapi = 'https://api.ipify.org?format=jsonp&callback=?'
 var form = $('#addItemForm');

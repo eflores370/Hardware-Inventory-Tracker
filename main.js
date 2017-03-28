@@ -1,4 +1,4 @@
-//Version Branch 0.1.02
+//Version 0.3.0
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
@@ -71,22 +71,25 @@ var renderMainInventory = function(data) {
         console.log('i');
         form.on('submit', function(d) {
             d.preventDefault();
-            var itemID = $(this).parents('.itemContainer');
-            itemID = itemID.children('.id');
-            itemID = itemID.text();
-            console.log(itemID);
-            var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
-            console.log(link);
+            var prompt = window.prompt("Please type 'DELETE' in order to continue   .")
+                var itemID = $(this).parents('.itemContainer');
+                itemID = itemID.children('.id');
+                itemID = itemID.text();
+                console.log(itemID);
+                if(prompt === 'DELETE'){
+                    var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
+                    console.log(link);
 
-            $.ajax({
-                url: link,
-                type: 'DELETE',
-                success: function(result) {
-                    // Do something with the result
-                    console.log('Success');
-                    window.location.reload();
-                }
-            });
+                $.ajax({
+                    url: link,
+                    type: 'DELETE',
+                    success: function(result) {
+                        // Do something with the result
+                        console.log('Success');
+                        window.location.reload();
+                    }
+                });
+            }
         })
         }
 }
