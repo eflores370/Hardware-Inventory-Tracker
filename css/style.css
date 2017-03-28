@@ -1,4 +1,4 @@
-/*Version 0.2.17 */
+/*Version Branch 0.1.01 */
 *{
   /*background-color: #c69c11;*/
   background-color: #33a1b7;
@@ -152,4 +152,12 @@ h2 {
 }
 .mainBody {
   margin-top: 40px;
+}
+ .mainButton {
+    margin: 5px;
+    margin-bottom: 10px;
+    float: right;
+}
+hr {
+    clear: right;
 }

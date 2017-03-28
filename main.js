@@ -1,4 +1,4 @@
-//Version 0.2.15
+//Version Branch 0.1.01
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
@@ -52,8 +52,8 @@ var renderMainInventory = function(data) {
             } else {
                 mainInventoryHTML += '</p>';
             }
-            mainInventoryHTML += '</div>';
-            mainInventoryHTML += '</div>';
+            mainInventoryHTML += '<div><form class="modifyRemove"><button class="mainButton remove" type="submit">Remove</button></form></div>';
+            mainInventoryHTML += '</div></div>';
             mainInventoryHTML += '<hr />';
         }
     });
@@ -63,11 +63,19 @@ var renderMainInventory = function(data) {
         // console.log(offsetmainInventoryURL);
         $.getJSON(offsetmainInventoryURL, renderMainInventory);
     }
+    else {
+        var form = $('.modifyRemove');
+        console.log('i');
+        form.on('submit', function(d) {
+            d.preventDefault();
+            console.log('Click');
+        })
+
+
+    }
     mainInventoryDiv.append(mainInventoryHTML);
     console.log(counter);
 }
-
-
 
 // Gets Airtable Data and renders it
 $.getJSON(mainInventoryURL, renderMainInventory);
