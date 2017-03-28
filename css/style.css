@@ -1,4 +1,4 @@
-/* Version Branch 0.1.02 */
+/* Version 0.3.1 */
 *{
   /*background-color: #c69c11;*/
   background-color: #33a1b7;
@@ -161,6 +161,6 @@ h2 {
 hr {
     clear: right;
 }
-.id {
+.id, .SN {
     display: none;
 }
