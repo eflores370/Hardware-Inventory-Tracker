@@ -3,48 +3,48 @@
 <html lang="en">
 
 <head>
-  <title>Add an Item</title>
-  <link rel="icon" href="images/noun_115_cc.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  <link href="css/additem.css" type="text/css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Arimo|Oswald|Ubuntu" rel="stylesheet">
+    <title>Add an Item</title>
+    <link rel="icon" href="images/noun_115_cc.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/additem.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Oswald|Ubuntu" rel="stylesheet">
 </head>
 <header>
-  <h1> Hardware Inventory</h1>
+    <h1> Hardware Inventory</h1>
 </header>
 
 <!-- Nav Bar -->
 <nav class="navbar navbar-inverse">
-  <div class="navContainer">
-    <ul class="nav navbar-nav">
-      <li><a href="index.html">Hardware Inventory</a></li>
-      <li class="dropdown active">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="additem.html">Add/Remove Item
+    <div class="navContainer">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Hardware Inventory</a></li>
+            <li class="dropdown active">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="additem.html">Add/Remove Item
               <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a class="bootstrap-overrides" href="additem.html">Add an Item</a></li>
-          <li><a class="bootstrap-overrides" href="#">Modify an Item</a></li>
-          <li><a class="bootstrap-overrides" href="#">Remove an Item</a></li>
+                <ul class="dropdown-menu">
+                    <li><a class="bootstrap-overrides" href="additem.html">Add an Item</a></li>
+                    <li><a class="bootstrap-overrides" href="#">Modify an Item</a></li>
+                    <li><a class="bootstrap-overrides" href="#">Remove an Item</a></li>
+                </ul>
+                <li><a href="analytics.html">Analytics</a></li>
         </ul>
-        <li><a href="analytics.html">Analytics</a></li>
-    </ul>
 </nav>
 
 <body class="bootstrap-overrides">
-  <div id="addItemformdiv">
-    <form id="addItemForm">
-      <div>
-        <label for="serialNumber">Serial Number:</label>
-        <input type="text" id="serialNumber" name="serialNumber" maxlength="60">
-      </div>
-      <div>
-        <label for="desktopModel">Desktop Model:</label>
-        <input type="text" id="desktopModel" name="desktopModel">
-      </div>
-      <div>
-        <label for="vendor">Vendor/Manufacturer:</label>
-        <select name="vendor" id="vendor">
+    <div id="addItemformdiv">
+        <form id="addItemForm">
+            <div>
+                <label for="serialNumber">Serial Number:</label>
+                <input type="text" id="serialNumber" name="serialNumber" maxlength="60">
+            </div>
+            <div>
+                <label for="desktopModel">Desktop Model:</label>
+                <input type="text" id="desktopModel" name="desktopModel">
+            </div>
+            <div>
+                <label for="vendor">Vendor/Manufacturer:</label>
+                <select name="vendor" id="vendor">
           <option selected value></option>
           <option value="Acer">Acer</option>
           <option value="Apple">Apple</option>
@@ -59,10 +59,10 @@
           <option value="Toshiba">Toshiba</option>
           <option value="Other">Other</option>
         </select>
-      </div>
-      <div class="test">
-        <label for="status">Status:</label>
-        <select id="status" name="status">
+            </div>
+            <div class="test">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
           <option selected value></option>
           <option value="Excellent">Excellent</option>
           <option value="Very Good">Very Good</option>
@@ -72,62 +72,62 @@
           <option value="Broken">Broken</option>
           <option value="Unknown">Unknown</option>
         </select>
-      </div>
+            </div>
 
-      <!-- Operating Checkboxes -->
-      <div>
-        <label><p>Operating System (Select all that apply):</p></label>
-        <br>
+            <!-- Operating Checkboxes -->
+            <div>
+                <label><p>Operating System (Select all that apply):</p></label>
+                <br>
 
-        <label for="operatingSystem">Android</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Android" /><br>
-        <label for="operatingSystem">IOS</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="IOS" /><br>
-        <label for="operatingSystem">Linux</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Linux" /><br>
-        <label for="operatingSystem">Mac OS</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Mac OS" /><br>
-        <label for="operatingSystem">Ubuntu</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Ubuntu" /><br>
-        <label for="operatingSystem">Windows XP</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows XP" /><br>
-        <label for="operatingSystem">Windows Vista</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows Vista" /><br>
-        <label for="operatingSystem">Windows 7</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 7" /><br>
-        <label for="operatingSystem">Windows 8/8.1</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 8/Windows 8.1" /><br>
-        <label for="operatingSystem">Windows 10</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 10" /><br>
-        <label for="operatingSystem">Other</label>
-        <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Other" /><br>
-      </div>
+                <label for="operatingSystem">Android</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Android" /><br>
+                <label for="operatingSystem">IOS</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="IOS" /><br>
+                <label for="operatingSystem">Linux</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Linux" /><br>
+                <label for="operatingSystem">Mac OS</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Mac OS" /><br>
+                <label for="operatingSystem">Ubuntu</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Ubuntu" /><br>
+                <label for="operatingSystem">Windows XP</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows XP" /><br>
+                <label for="operatingSystem">Windows Vista</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows Vista" /><br>
+                <label for="operatingSystem">Windows 7</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 7" /><br>
+                <label for="operatingSystem">Windows 8/8.1</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 8/Windows 8.1" /><br>
+                <label for="operatingSystem">Windows 10</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Windows 10" /><br>
+                <label for="operatingSystem">Other</label>
+                <input class="osCheckbox" type="checkbox" name="operatingSystem" value="Other" /><br>
+            </div>
 
-      <div>
-        <label for="cpu">CPU Make/Model:</label>
-        <input type="text" id="cpu" name="cpu">
-      </div>
-      <div>
-        <label for="ram">Ram (GB):</label>
-        <input type="text" id="ram" name="ram">
-      </div>
-      <div>
-        <label for="storage">Storage (GB):</label>
-        <input type="text" id="storage" name="storage">
-      </div>
-      <div>
-        <label for="notes">Notes:</label>
-        <textarea id="notes" name="notes"></textarea>
-      </div>
+            <div>
+                <label for="cpu">CPU Make/Model:</label>
+                <input type="text" id="cpu" name="cpu">
+            </div>
+            <div>
+                <label for="ram">Ram (GB):</label>
+                <input type="text" id="ram" name="ram">
+            </div>
+            <div>
+                <label for="storage">Storage (GB):</label>
+                <input type="text" id="storage" name="storage">
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+            </div>
 
-      <div class="formButton">
-        <button type="submit">Add Item</button>
-      </div>
-    </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/5a89ad11e8.js"></script>
-    <script src="additem.js"></script>
+            <div class="formButton">
+                <button type="submit">Add Item</button>
+            </div>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/5a89ad11e8.js"></script>
+        <script src="additem.js"></script>
 </body>
 
 </html>

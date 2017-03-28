@@ -1,4 +1,4 @@
-// Version 0.3.2
+// Version 0.3.3
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
@@ -99,17 +99,16 @@ var renderMainInventory = function(data) {
 // Search Bar
 var form2 = $('#searchbox');
 var arrayholder = [];
-var searchcounter = 0;
+var results = 0;
 form2.on('submit', function(f) {
     f.preventDefault();
+    $('.noResults').remove();
+    results = 0;
     arrayholder.forEach(function(i) {
         // console.log(i);
         i.removeClass('hidden');
         // console.log(i);
     })
-    if (searchcounter > 0) {
-        arrayholder = [];
-    }
     var Search = search.value;
     if (!Search) {
         alert('No Serial Number Inserted')
@@ -123,11 +122,20 @@ form2.on('submit', function(f) {
             temp2 = temp2.parent('.itemContainer')
             temp2.addClass('hidden');
             arrayholder.push(temp2)
+        } else {
+            results += 1;
+        }
 
+
+
+
+    })
+    if (results === 0) {
+        var insertWarning = '<div class="noResults"> No Results Found!</div>'
+        mainInventoryDiv.prepend(insertWarning);
+        return
     }
-
-})
-// console.log(arrayholder)
+    // console.log(arrayholder)
 })
 
 
