@@ -1,14 +1,17 @@
-//Version 0.2.15
+// Version 0.3.4
 var mainInventoryURL = 'https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory?api_key=keykbC2FwErK6UFom&view=Main%20View';
 var mainInventoryHTML = '';
 var mainInventoryDiv = $('.mainBody');
 var counter = 0;
+var offsetcounter = 0;
 var renderMainInventory = function(data) {
 
     data.records.forEach(function(item) {
         if (item.fields['Serial Number / Asset Number']) {
             counter += 1;
             mainInventoryHTML += "<div class='itemContainer'>";
+            mainInventoryHTML += `<h4 class='id'>${item.id}</h4>`
+            mainInventoryHTML += `<h4 class='SN'>${item.fields['Serial Number / Asset Number']}</h4>`
             mainInventoryHTML += "<div class='itemName'>";
             mainInventoryHTML += '<h2>Serial Number/Asset Number: ' + '<span class="insertedText">' + item.fields['Serial Number / Asset Number'] + '</span></h2>';
             mainInventoryHTML += '</div>';
@@ -52,20 +55,88 @@ var renderMainInventory = function(data) {
             } else {
                 mainInventoryHTML += '</p>';
             }
+            mainInventoryHTML += '<div><form class="modifyRemove"><button class="mainButton remove" type="submit">Remove</button></form></div>';
             mainInventoryHTML += '</div>';
-            mainInventoryHTML += '</div>';
-            mainInventoryHTML += '<hr />';
+            mainInventoryHTML += '<hr /></div>';
         }
     });
-    if (data.offset) {
-        // console.log(data.offset)
-        var offsetmainInventoryURL = mainInventoryURL + '&offset=' + data.offset
-        // console.log(offsetmainInventoryURL);
-        $.getJSON(offsetmainInventoryURL, renderMainInventory);
-    }
-    mainInventoryDiv.append(mainInventoryHTML);
+
     console.log(counter);
+    // checks if there are more than 100 records
+    if (data.offset) {
+        var offsetmainInventoryURL = mainInventoryURL + '&offset=' + data.offset;
+        $.getJSON(offsetmainInventoryURL, renderMainInventory);
+    } else {
+        mainInventoryDiv.append(mainInventoryHTML);
+        var form = $('.modifyRemove');
+        console.log('i');
+        // Delete button function
+        form.on('submit', function(d) {
+            d.preventDefault();
+            var prompt = window.prompt("Please type 'DELETE' in order to continue   .")
+            var itemID = $(this).parents('.itemContainer');
+            itemID = itemID.children('.id');
+            itemID = itemID.text();
+            console.log(itemID);
+            if (prompt === 'DELETE') {
+                var link = `https://api.airtable.com/v0/appztwEDDxgAVCwxF/Main%20Inventory/${itemID}?api_key=keykbC2FwErK6UFom`;
+                console.log(link);
+                // Sends DELETE request to airtable
+                $.ajax({
+                    url: link,
+                    type: 'DELETE',
+                    success: function(result) {
+                        // Do something with the result
+                        console.log('Success');
+                        window.location.reload();
+                    }
+                });
+            }
+        })
+    }
 }
+
+// Search Bar
+var form2 = $('#searchbox');
+var arrayholder = [];
+var results = 0;
+form2.on('submit', function(f) {
+    f.preventDefault();
+    $('.noResults').remove();
+    results = 0;
+    arrayholder.forEach(function(i) {
+        // console.log(i);
+        i.removeClass('hidden');
+        // console.log(i);
+    })
+    var Search = search.value;
+    if (!Search) {
+        alert('No Serial Number Inserted')
+        return
+    }
+    $('.SN').each(function(item) {
+        var SN = $(this);
+        SN = SN.text();
+        if (Search != SN) {
+            var temp2 = $(this);
+            temp2 = temp2.parent('.itemContainer')
+            temp2.addClass('hidden');
+            arrayholder.push(temp2)
+        } else {
+            results += 1;
+        }
+
+
+
+
+    })
+    if (results === 0) {
+        var insertWarning = '<div class="noResults"> No Results Found!</div>'
+        mainInventoryDiv.prepend(insertWarning);
+        return
+    }
+    // console.log(arrayholder)
+})
 
 
 
